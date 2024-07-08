@@ -20,6 +20,17 @@
         <property name="suffix" value=".jsp"/>
     </bean>
 
+    <!--
+       配置可以解析自定义视图的解析器 (可以配置多个)
+       (1) BeanNameViewResolver 可以解析自定义视图的解析器
+       (2) name="order": 表示给这个解析器设置优先级, order 值越低, 视图解析器的优先级越高.
+           (order 值默认值为 Integer.MAX_VALUE, InternalResourceViewResolver 的默认 order 值也为这个)
+    -->
+    <bean class="org.springframework.web.servlet.view.BeanNameViewResolver">
+        <property name="order" value="99" />
+    </bean>
+
+
     <!--加入两个常规配置-->
     <!--支持SpringMVC的高级功能，比如 映射动态请求(支持handler接收restful请求), JSR303校验-->
     <mvc:annotation-driven/>
