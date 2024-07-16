@@ -7,7 +7,7 @@
 
 <body>
 <h3>登录页面</h3>
-<form action="user/login">
+<form action="<%=request.getContextPath()%>/user/login">
     username: <input name="username" type="text"> <br/>
     password: <input name="password" type="password"><br/>
 <input type="submit" value="登录">

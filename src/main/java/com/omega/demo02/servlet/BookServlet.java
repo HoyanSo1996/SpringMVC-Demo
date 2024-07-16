@@ -19,7 +19,7 @@ public class BookServlet {
     // @RequestMapping(value = "/books/{id}", method = RequestMethod.GET)
     public String getBook(@PathVariable("id") String id) {
         System.out.println("查询书籍id = " + id);
-        return "success";
+        return "rest_success";
     }
 
     /**
@@ -29,7 +29,7 @@ public class BookServlet {
     // @RequestMapping(value = "/books", method = RequestMethod.POST)
     public String addBook(String bookName) {
         System.out.println("添加书籍bookName = " + bookName);
-        return "success";
+        return "rest_success";
     }
 
     /**
@@ -54,7 +54,7 @@ public class BookServlet {
 
     @RequestMapping(value = "/books/success")
     public String success() {
-        return "success";  // 由该方法转发到 success.jsp 页面
+        return "rest_success";  // 由该方法转发到 rest_success.jsp 页面
     }
 
 }
