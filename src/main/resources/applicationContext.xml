@@ -40,4 +40,36 @@
     <!--将springmvc不能处理的请求，交给 tomcat 处理, 比如css, js-->
     <mvc:default-servlet-handler/>
 
+
+    <!-- 配置自定义拦截器 -->
+    <!--
+        方式一:
+        仅配置需要使用的拦截器, 会拦截所有请求
+    -->
+<!--    <mvc:interceptors>-->
+<!--        <ref bean="customInterceptor01"/>-->
+<!--    </mvc:interceptors>-->
+
+    <!--
+        方式二:
+        配置需要使用的拦截器, 并且指定要拦截的请求(支持使用通配符).
+    -->
+<!--    <mvc:interceptors>-->
+<!--        <mvc:interceptor>-->
+<!--            <mvc:mapping path="/user/hi"/>-->
+<!--            <ref bean="customInterceptor01"/>-->
+<!--        </mvc:interceptor>-->
+<!--    </mvc:interceptors>-->
+
+    <!--
+        方式三:
+        配置需要使用的拦截器, 并且指定 需要拦截的请求 和 需要放行的请求.
+    -->
+    <mvc:interceptors>
+        <mvc:interceptor>
+            <mvc:mapping path="/user/h*"/>
+            <mvc:exclude-mapping path="/user/hello"/>
+            <ref bean="customInterceptor01"/>
+        </mvc:interceptor>
+    </mvc:interceptors>
 </beans>
