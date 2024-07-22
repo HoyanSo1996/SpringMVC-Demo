@@ -71,5 +71,11 @@
             <mvc:exclude-mapping path="/user/hello"/>
             <ref bean="customInterceptor01"/>
         </mvc:interceptor>
+
+        <!-- 拦截器的执行顺序与配置顺序一致 -->
+        <mvc:interceptor>
+            <mvc:mapping path="/user/hi"/>
+            <ref bean="customInterceptor02"/>
+        </mvc:interceptor>
     </mvc:interceptors>
 </beans>
