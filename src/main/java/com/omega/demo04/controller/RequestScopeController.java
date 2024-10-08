@@ -3,7 +3,9 @@ package com.omega.demo04.controller;
 import com.omega.demo04.entity.Master;
 import com.omega.demo04.entity.Pet;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
@@ -66,5 +68,20 @@ public class RequestScopeController {
         modelAndView.addObject("address", "Shanghai");
         modelAndView.setViewName("requestScope_success");
         return modelAndView;
+    }
+
+    @RequestMapping("test05")
+    public String test05(HttpServletRequest request) {
+        request.setAttribute("username", "John");
+        return "forward:/requestScope/test06";
+    }
+
+    @RequestMapping("test06")
+    @ResponseBody
+    public String test06(@RequestAttribute("username") String username,
+                         HttpServletRequest request) {
+        System.out.println("方式一: " + username);
+        System.out.println("方式二: " + request.getAttribute("username"));
+        return "success~";
     }
 }
