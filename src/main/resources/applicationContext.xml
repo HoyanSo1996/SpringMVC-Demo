@@ -77,6 +77,12 @@
             <mvc:mapping path="/user/hi"/>
             <ref bean="customInterceptor02"/>
         </mvc:interceptor>
+
+        <mvc:interceptor>
+            <mvc:mapping path="/controller_"/>
+            <mvc:mapping path="/controller2_"/>
+            <ref bean="interceptor_"/>
+        </mvc:interceptor>
     </mvc:interceptors>
 
     <!-- 配置统一异常处理 -->
